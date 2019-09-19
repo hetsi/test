@@ -3,14 +3,14 @@ services:
   - docker
 
 script:
-  - docker build -t mannydesigns/node .
-  - docker images mannydesigns/node
+  - docker build -t hetsi/node .
+  - docker images hetsi/node
 
 before_deploy:
   - docker login -u hetsi -p Chocolate@123
 
 deploy:
   provider: script
-  script: docker push mannydesigns/node
+  script: docker push hetsi/node
   on:
     branch: master
