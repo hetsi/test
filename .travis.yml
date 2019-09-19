@@ -5,3 +5,12 @@ services:
 scripts:
   - docker build -t mannydesigns/node .
   - docker images mannydesigns/node
+
+before_deploy:
+  - docker login -u hetsi -p Chocolate@123
+
+deploy:
+  provider: script
+  script: docker push hetsi/node
+  on:
+    branch: master
